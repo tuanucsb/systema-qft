@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 390" role="img" aria-label="Mexican hat Higgs potential and degree of freedom accounting"><style>
+  :root {
+    --bg: #f6f4ee; --surface: #ffffff; --surface-2: #eeeae0;
+    --ink: #11141c; --ink-2: #3b4352; --ink-3: #596273;
+    --line: #d4cec0; --line-2: #aca493; --accent: #0b7a72;
+    --c-crisis: #c81e3a; --c-act1: #155e75; --c-act2: #0f766e;
+    --c-act3: #b45309; --c-act4: #4338ca; --c-act5: #1d4ed8;
+    --c-act6: #7e22ce; --c-act7: #be185d;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #090c15; --surface: #121726; --surface-2: #192036;
+      --ink: #eff3fc; --ink-2: #c2cbe6; --ink-3: #94a0c4;
+      --line: #283152; --line-2: #3d4978; --accent: #2ee6c5;
+      --c-crisis: #ff6b84; --c-act1: #38bdf8; --c-act2: #2dd4bf;
+      --c-act3: #fbbf24; --c-act4: #818cf8; --c-act5: #60a5fa;
+      --c-act6: #c084fc; --c-act7: #f472b6;
+    }
+  }
+  text { font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif; fill: var(--ink); }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .serif { font-family: 'Fraunces', Georgia, serif; }
+</style><rect width="760" height="390" rx="14" fill="var(--surface)"/>
+    <text x="32" y="38" class="mono" font-size="11.5" font-weight="700" fill="var(--c-act7)">PLATE 10 · STOPS 21–22 · MEXICAN-HAT HIGGS CONDENSATE &amp; EATEN GOLDSTONES</text>
+    <text x="32" y="64" class="serif" font-size="20" font-weight="800">Spontaneous Symmetry Breaking: V(H) = −μ²|H|² + λ|H|⁴ at v = 246.2 GeV</text>
+
+    <!-- Left: W-shaped cross section & trough -->
+    <line x1="215" y1="96" x2="215" y2="338" stroke="var(--ink-3)" stroke-width="1.6"/>
+    <line x1="48" y1="286" x2="382" y2="286" stroke="var(--ink-3)" stroke-width="1.6"/>
+    <!-- Symmetric dashed parabola -->
+    <path d="M 88 122 Q 215 430 342 122" fill="none" stroke="var(--ink-3)" stroke-width="1.8" stroke-dasharray="5 4"/>
+    <!-- Broken W curve -->
+    <path d="M 62 112 C 92 340, 152 345, 215 198 C 278 345, 338 340, 368 112" fill="none" stroke="var(--c-act7)" stroke-width="3.4"/>
+    <!-- Trough ellipse -->
+    <ellipse cx="215" cy="292" rx="92" ry="22" fill="none" stroke="var(--c-act2)" stroke-width="2.4" stroke-dasharray="5 3"/>
+    <circle cx="215" cy="198" r="6" fill="var(--c-crisis)"/>
+    <circle cx="307" cy="292" r="7.5" fill="var(--c-act2)"/>
+    <text x="215" y="184" text-anchor="middle" font-size="11.5" font-weight="700" fill="var(--c-crisis)">Unstable H = 0</text>
+    <text x="324" y="328" font-size="12" font-weight="700" fill="var(--c-act2)">True VEV v = 246 GeV</text>
+    <text x="128" y="348" font-size="11.5" fill="var(--c-act2)">Flat trough π^a → Goldstones</text>
+
+    <!-- Right: Degree of Freedom Accounting -->
+    <rect x="412" y="96" width="316" height="264" rx="10" fill="var(--surface-2)" stroke="var(--line)"/>
+    <text x="570" y="124" text-anchor="middle" font-size="13.5" font-weight="800">Exact Degree-of-Freedom Conservation</text>
+    <text x="430" y="154" class="mono" font-size="12" font-weight="700" fill="var(--c-act5)">BEFORE SSB (Symmetric UV):</text>
+    <text x="430" y="176" font-size="12" fill="var(--ink-2)">• Complex Doublet H: 4 real scalars</text>
+    <text x="430" y="196" font-size="12" fill="var(--ink-2)">• Massless W¹,W²,W³,B: 4 × 2 = 8 dof</text>
+    <line x1="430" y1="212" x2="708" y2="212" stroke="var(--line-2)"/>
+    <text x="430" y="236" class="mono" font-size="12" font-weight="700" fill="var(--c-act7)">AFTER SSB (SU(2)_L×U(1)_Y → U(1)_em):</text>
+    <text x="430" y="258" font-size="12" fill="var(--ink-2)">• 3 Goldstones eaten → W_L⁺, W_L⁻, Z_L⁰!</text>
+    <text x="430" y="278" font-size="12" fill="var(--ink-2)">• Massive W± (80.4) &amp; Z⁰ (91.2): 3×3 = 9 dof</text>
+    <text x="430" y="298" font-size="12" fill="var(--ink-2)">• Massless Photon γ (Q = T³+Y): 2 dof</text>
+    <text x="430" y="318" font-size="12" font-weight="700" fill="var(--c-act2)">• Physical Radial Higgs h (125.1 GeV): 1 dof</text>
+    <text x="570" y="344" text-anchor="middle" class="mono" font-size="12" font-weight="700">Total: 4 + 8 = 12 = 9 + 2 + 1</text>
+    </svg>

@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 390" role="img" aria-label="Faddeev Popov gauge orbits and ghost cancellation"><style>
+  :root {
+    --bg: #f6f4ee; --surface: #ffffff; --surface-2: #eeeae0;
+    --ink: #11141c; --ink-2: #3b4352; --ink-3: #596273;
+    --line: #d4cec0; --line-2: #aca493; --accent: #0b7a72;
+    --c-crisis: #c81e3a; --c-act1: #155e75; --c-act2: #0f766e;
+    --c-act3: #b45309; --c-act4: #4338ca; --c-act5: #1d4ed8;
+    --c-act6: #7e22ce; --c-act7: #be185d;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #090c15; --surface: #121726; --surface-2: #192036;
+      --ink: #eff3fc; --ink-2: #c2cbe6; --ink-3: #94a0c4;
+      --line: #283152; --line-2: #3d4978; --accent: #2ee6c5;
+      --c-crisis: #ff6b84; --c-act1: #38bdf8; --c-act2: #2dd4bf;
+      --c-act3: #fbbf24; --c-act4: #818cf8; --c-act5: #60a5fa;
+      --c-act6: #c084fc; --c-act7: #f472b6;
+    }
+  }
+  text { font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif; fill: var(--ink); }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .serif { font-family: 'Fraunces', Georgia, serif; }
+</style><rect width="760" height="390" rx="14" fill="var(--surface)"/>
+    <text x="32" y="38" class="mono" font-size="11.5" font-weight="700" fill="var(--c-act5)">PLATE 09 · STOPS 12 &amp; 19 · GAUGE ORBITS &amp; FADDEEV–POPOV GHOSTS</text>
+    <text x="32" y="64" class="serif" font-size="20" font-weight="800">Slicing Redundant Gauge Fibers Without Overcounting or Breaking Unitarity</text>
+
+    <!-- Fiber bundle vertical orbits -->
+    <g stroke="var(--ink-3)" stroke-width="2" fill="none">
+      <path d="M 110 110 C 95 195, 125 265, 108 335"/>
+      <path d="M 195 110 C 180 195, 215 265, 192 335"/>
+      <path d="M 280 110 C 265 195, 300 265, 278 335"/>
+      <path d="M 365 110 C 350 195, 385 265, 362 335"/>
+    </g>
+    <text x="235" y="102" text-anchor="middle" font-size="12" font-weight="700" fill="var(--ink-2)">Infinite Gauge-Equivalent Fibers A_μ^U</text>
+
+    <!-- Gauge-fixing slice G(A) = 0 -->
+    <path d="M 72 238 Q 235 190 405 232" fill="none" stroke="var(--c-act2)" stroke-width="4"/>
+    <circle cx="111" cy="227" r="5.5" fill="var(--c-act2)"/>
+    <circle cx="196" cy="214" r="5.5" fill="var(--c-act2)"/>
+    <circle cx="281" cy="214" r="5.5" fill="var(--c-act2)"/>
+    <circle cx="366" cy="225" r="5.5" fill="var(--c-act2)"/>
+    <text x="235" y="362" text-anchor="middle" class="mono" font-size="12" font-weight="700" fill="var(--c-act2)">Slice G^a(A) = ∂^μ A_μ^a = 0 picks 1 representative / orbit</text>
+
+    <!-- Right box: Ghost cancellation -->
+    <rect x="442" y="106" width="286" height="248" rx="10" fill="var(--surface-2)" stroke="var(--c-crisis)" stroke-width="1.8"/>
+    <text x="585" y="134" text-anchor="middle" font-size="13.5" font-weight="800" fill="var(--c-crisis)">Jacobian det(∂^μ D_μ^{ab}) = Ghost Loop</text>
+    <circle cx="585" cy="204" r="38" fill="none" stroke="var(--c-crisis)" stroke-width="2.8" stroke-dasharray="4 4"/>
+    <text x="585" y="208" text-anchor="middle" class="mono" font-size="12" font-weight="700" fill="var(--c-crisis)">c^a / c̄^a (−1)</text>
+    <text x="585" y="268" text-anchor="middle" font-size="12" font-weight="700">4 Gluon Comps (A₀, A₁, A₂, A₃)</text>
+    <text x="585" y="290" text-anchor="middle" font-size="12" fill="var(--c-crisis)" font-weight="700">− 2 Anticommuting Ghosts (c, c̄)</text>
+    <text x="585" y="316" text-anchor="middle" font-size="13" font-weight="800" fill="var(--c-act2)">= 2 Physical Transverse Helicities!</text>
+    </svg>

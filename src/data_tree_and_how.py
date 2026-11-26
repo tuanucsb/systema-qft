@@ -1,0 +1,262 @@
+# -*- coding: utf-8 -*-
+"""32-Node QFT Dependency Tree, 10 Myths & Grad Sign Traps, 8 Precision Benchmarks, and 6-Book Synthesis Guide."""
+
+TREE_NODES = [
+    # Act I (col 0)
+    {"id": "nd-lightcone", "act": 1, "lane": 0, "stop": "stop-01", "short": "Lightcone Causality", "title": "Spacelike Microcausality [φ(x),φ(y)] = 0", "rests_on": [], "plain": "Relativity forbids signals outside the lightcone, forcing antiparticles to cancel 1-particle exponential tails.", "eq": r"[\mathcal{O}(x),\mathcal{O}(y)]=0\;\;((x-y)^2<0)"},
+    {"id": "nd-noether", "act": 1, "lane": 1, "stop": "stop-02", "short": "Noether Currents", "title": "Action Principle & Noether’s Theorem", "rests_on": ["nd-lightcone"], "plain": "Continuous symmetries of S = ∫d⁴x L generate conserved 4-currents ∂_μ j^μ = 0 and charges Q.", "eq": r"\partial_\mu j^\mu = 0,\;\; Q = \int d^3x\,j^0"},
+    {"id": "nd-wigner", "act": 1, "lane": 2, "stop": "stop-03", "short": "Wigner Little Group", "title": "Poincaré Irreps & Little-Group Spin/Helicity", "rests_on": ["nd-lightcone", "nd-noether"], "plain": "Classifies all particles by m² and little group: SO(3) (2s+1 states) for m>0; ISO(2) (±s helicity) for m=0.", "eq": r"\mathfrak{so}(1,3)_{\mathbb{C}} \cong \mathfrak{su}(2)_L \oplus \mathfrak{su}(2)_R"},
+    {"id": "nd-natunits", "act": 1, "lane": 7, "stop": "stop-01", "short": "Natural Units [E]^d", "title": "Dimensional Power Counting (ħ = c = 1)", "rests_on": ["nd-lightcone"], "plain": "Expresses every field and coupling in powers of GeV: [L]=4, [φ]=1, [ψ]=3/2, [A_μ]=1.", "eq": r"[S]=E^0,\;[\mathcal{L}]=E^4,\;\sigma\sim E^{-2}"},
+
+    # Act II (col 1)
+    {"id": "nd-fock", "act": 2, "lane": 0, "stop": "stop-04", "short": "Scalar Fock Modes", "title": "Fourier Harmonic Oscillator Quantization", "rests_on": ["nd-wigner", "nd-natunits"], "plain": "Unpacks φ(x) into momentum-space ladder operators a_p, a_p† creating indistinguishable bosons.", "eq": r"[a_{\vec{p}},a_{\vec{q}}^\dagger]=(2\pi)^3\delta^3(\vec{p}-\vec{q})"},
+    {"id": "nd-ieps", "act": 2, "lane": 3, "stop": "stop-05", "short": "Feynman +iε Poles", "title": "Time-Ordered Propagator & Contour Routing", "rests_on": ["nd-lightcone", "nd-fock"], "plain": "Nudges poles to ±(ω_p − iε) so positive energy flows forward in time and negative energy backward.", "eq": r"D_F(p)=\frac{i}{p^2-m^2+i\epsilon}"},
+    {"id": "nd-pathint", "act": 2, "lane": 2, "stop": "stop-06", "short": "Path Integral Z[J]", "title": "Gaussian Functional Integral & W[J]", "rests_on": ["nd-noether", "nd-ieps"], "plain": "Sums exp(iS[φ]+i∫Jφ) over all field histories; −i ln Z[J] isolates connected diagrams.", "eq": r"\mathcal{Z}_0[J]=e^{-\frac{1}{2}\int J D_F J}"},
+    {"id": "nd-casimir", "act": 2, "lane": 6, "stop": "stop-04", "short": "Zero-Point Vacuum", "title": "Vacuum Zero-Point Energy & Casimir Force", "rests_on": ["nd-fock"], "plain": "Infinite oscillator ground-state sum ½∑ω_p yields measurable boundary forces between plates.", "eq": r"F/A = -\frac{\pi^2\hbar c}{240\,d^4}"},
+
+    # Act III (col 2)
+    {"id": "nd-wick", "act": 3, "lane": 4, "stop": "stop-07", "short": "Dyson & Wick", "title": "Dyson Series, Wick Contractions & 1/S", "rests_on": ["nd-ieps", "nd-pathint"], "plain": "Turns time-ordered interaction products into sums of Feynman graphs weighted by symmetry factors.", "eq": r"U_I = T\exp\!\left(-i\int dt\,H_I\right)"},
+    {"id": "nd-lsz", "act": 3, "lane": 3, "stop": "stop-08", "short": "LSZ Amputation", "title": "LSZ Reduction Formula & Residue Z", "rests_on": ["nd-ieps", "nd-wick"], "plain": "Extracts physical S-matrix elements from amputated on-shell residues of Green’s functions.", "eq": r"\prod_k \frac{p_k^2-m^2}{i\sqrt{Z}}\,\tilde{G}^{(n)}"},
+    {"id": "nd-lips", "act": 3, "lane": 7, "stop": "stop-09", "short": "Cross Sections & Optical", "title": "LIPS Phase Space, dσ/dΩ & Optical Theorem", "rests_on": ["nd-natunits", "nd-lsz"], "plain": "Converts |M|² into lab cross sections and ties Im M(i→i) to total cross section via unitarity.", "eq": r"2\operatorname{Im}\mathcal{M}(i\to i)=2E_{\text{cm}}|\vec{p}_i|\sigma_{\text{tot}}"},
+
+    # Act IV (col 3)
+    {"id": "nd-weyl", "act": 4, "lane": 0, "stop": "stop-10", "short": "Weyl & Dirac Spinors", "title": "Chiral Spinors (1/2,0) ⊕ (0,1/2) & Clifford γ^μ", "rests_on": ["nd-wigner"], "plain": "Builds relativistic fermions out of 2-component chiral Weyl spinors coupled by mass m.", "eq": r"\{\gamma^\mu,\gamma^\nu\}=2\eta^{\mu\nu}"},
+    {"id": "nd-spinstat", "act": 4, "lane": 6, "stop": "stop-11", "short": "Spin-Statistics & Grassmann", "title": "Anticommutators, Berezin Integrals & Loop (−1)", "rests_on": ["nd-pathint", "nd-weyl"], "plain": "Saves vacuum stability E ≥ 0 for half-integer spin, enforces Pauli exclusion, and gives (−1) per fermion loop.", "eq": r"\{\psi_\alpha(\vec{x}),\psi_\beta^\dagger(\vec{y})\}=\delta_{\alpha\beta}\delta^3(\vec{x}-\vec{y})"},
+    {"id": "nd-traces", "act": 4, "lane": 4, "stop": "stop-11", "short": "Casimir Spin Traces", "title": "Completeness Sums ∑uū = p̸+m & Trace Calculus", "rests_on": ["nd-weyl", "nd-spinstat"], "plain": "Turns unpolarized fermion spin sums into clean 4×4 gamma-matrix traces.", "eq": r"\sum_s u^s\bar{u}^s = \not{p}+m"},
+
+    # Act V (col 4)
+    {"id": "nd-gaugeu1", "act": 5, "lane": 1, "stop": "stop-12", "short": "U(1) Gauge Redundancy", "title": "Massless Spin-1 Redundancy & Ward Identity", "rests_on": ["nd-noether", "nd-wigner"], "plain": "Removes negative-norm A_0 ghosts from 4-vector photon A_μ via local U(1) invariance and k_μ M^μ = 0.", "eq": r"D_\mu=\partial_\mu+ieQA_\mu,\;\;k_\mu\mathcal{M}^\mu=0"},
+    {"id": "nd-rxi", "act": 5, "lane": 3, "stop": "stop-12", "short": "R_ξ Photon Propagator", "title": "Covariant Gauge Fixing & Invertible Photon Propagator", "rests_on": ["nd-pathint", "nd-gaugeu1"], "plain": "Slices gauge orbits with −(∂·A)²/(2ξ) so D_F^{μν}(q) exists while physical amplitudes stay ξ-independent.", "eq": r"\frac{-i}{q^2}\!\left(\eta^{\mu\nu}-(1-\xi)\frac{q^\mu q^\nu}{q^2}\right)"},
+    {"id": "nd-qedtree", "act": 5, "lane": 7, "stop": "stop-13", "short": "QED Collider Trees", "title": "e⁺e⁻→μ⁺μ⁻, Compton, Bhabha & Hadronic R-Ratio", "rests_on": ["nd-lips", "nd-traces", "nd-rxi"], "plain": "Predicts (1+cos²θ) spin-1 angular curves and R_had = N_c ∑Q_q² confirming 3 quark colors.", "eq": r"\sigma(e^+e^-\to\mu^+\mu^-)=\frac{4\pi\alpha^2}{3s}"},
+
+    # Act VI (col 5)
+    {"id": "nd-dimreg", "act": 6, "lane": 5, "stop": "stop-14", "short": "Wick Rot. & DimReg", "title": "Feynman Parameters, Wick Rotation & d = 4 − ε", "rests_on": ["nd-ieps", "nd-rxi"], "plain": "Evaluates loop integrals in Euclidean d = 4 − ε space, isolating UV poles as 2/ε without breaking gauge symmetry.", "eq": r"\frac{i}{16\pi^2}\!\left(\frac{2}{\epsilon}-\gamma_E+\ln\frac{4\pi\mu^2}{\Delta}\right)"},
+    {"id": "nd-ct", "act": 6, "lane": 2, "stop": "stop-15", "short": "Counterterms & MS-bar", "title": "Renormalized Perturbation Theory & Schemes", "rests_on": ["nd-lsz", "nd-dimreg"], "plain": "Absorbs UV poles into δ_Z, δ_m, δ_g counterterms to express amplitudes in terms of finite lab couplings.", "eq": r"\phi_0 = \sqrt{Z}\,\phi,\;\;\mathcal{L}_0=\mathcal{L}_{\text{ren}}+\mathcal{L}_{\text{ct}}"},
+    {"id": "nd-gminus2", "act": 6, "lane": 7, "stop": "stop-16", "short": "Schwinger g−2 & IR", "title": "Anomalous Moment α/2π & Bloch–Nordsieck IR Cancel", "rests_on": ["nd-qedtree", "nd-ct"], "plain": "Predicts electron g−2 to 12 digits and cancels IR virtual divergences against soft real photon emission.", "eq": r"a_e = \frac{g-2}{2} = \frac{\alpha}{2\pi} + \mathcal{O}(\alpha^2)"},
+    {"id": "nd-eft", "act": 6, "lane": 5, "stop": "stop-17", "short": "Wilsonian EFT & RG", "title": "Effective Field Theory & Callan–Symanzik β(g)", "rests_on": ["nd-natunits", "nd-ct"], "plain": "Integrates out heavy scales Λ to organize operators by (E/Λ)^{d−4} and resums logs via running couplings g(μ).", "eq": r"\mu\frac{dg}{d\mu}=\beta(g),\;\;\mathcal{L}_{\text{EFT}}=\sum\frac{c_i}{\Lambda^{d-4}}\mathcal{O}_i"},
+
+    # Act VII (col 6)
+    {"id": "nd-ym", "act": 7, "lane": 1, "stop": "stop-18", "short": "Yang–Mills SU(N)", "title": "Non-Abelian Curvature F_{μν}^a & Gluon Self-Coupling", "rests_on": ["nd-gaugeu1"], "plain": "Non-commuting [T^a,T^b] = i f^{abc}T^c forces gauge bosons to carry charge and self-interact via 3- and 4-vertices.", "eq": r"F_{\mu\nu}^a=\partial_\mu A_\nu^a-\partial_\nu A_\mu^a+gf^{abc}A_\mu^bA_\nu^c"},
+    {"id": "nd-ghosts", "act": 7, "lane": 3, "stop": "stop-19", "short": "FP Ghosts & BRST", "title": "Faddeev–Popov Ghosts & Nilpotent BRST Q_B² = 0", "rests_on": ["nd-spinstat", "nd-rxi", "nd-ym"], "plain": "Grassmann scalar ghosts represent det(∂·D) inside closed loops to cancel unphysical gluon polarizations.", "eq": r"\mathcal{L}_{\text{FP}}=\bar{c}^a(-\partial^\mu D_\mu^{ab})c^b,\;\;Q_B^2=0"},
+    {"id": "nd-qcd", "act": 7, "lane": 5, "stop": "stop-20", "short": "Asymptotic Freedom", "title": "QCD β_0 > 0, Λ_QCD Transmutation & Confinement", "rests_on": ["nd-eft", "nd-ghosts"], "plain": "Gluon anti-screening (+11) beats quark screening (−2n_f/3), making QCD weak in UV and confining in IR!", "eq": r"\beta(g_s)=-\frac{g_s^3}{16\pi^2}\!\left(11-\frac{2}{3}n_f\right)"},
+    {"id": "nd-ssb", "act": 7, "lane": 6, "stop": "stop-21", "short": "Goldstone & Higgs SSB", "title": "Spontaneous Symmetry Breaking & Eaten Goldstones", "rests_on": ["nd-noether", "nd-casimir", "nd-ym"], "plain": "Mexican-hat vacuum ⟨H⟩ = v/√2 breaks gauge symmetry spontaneously, feeding Goldstones into longitudinal W/Z.", "eq": r"V(H)=-\mu^2|H|^2+\lambda|H|^4,\;\;v=246\text{ GeV}"},
+    {"id": "nd-gws", "act": 7, "lane": 2, "stop": "stop-22", "short": "Electroweak GWS", "title": "SU(2)_L × U(1)_Y Unification, θ_W & W/Z/γ Masses", "rests_on": ["nd-weyl", "nd-ssb"], "plain": "Mixes W³ and B by Weinberg angle θ_W to leave photon massless while predicting M_W = M_Z cosθ_W.", "eq": r"M_W=\tfrac{1}{2}gv,\;\;M_Z=\frac{M_W}{\cos\theta_W},\;\;Q=T^3+Y"},
+    {"id": "nd-anom", "act": 7, "lane": 1, "stop": "stop-23", "short": "Triangle Anomalies", "title": "ABJ Chiral Anomaly & SM Quark–Lepton Cancellation", "rests_on": ["nd-spinstat", "nd-dimreg", "nd-gws"], "plain": "1-loop fermion triangles explain π⁰→γγ and force quark + lepton hypercharges to cancel gauge anomalies.", "eq": r"\sum_{L}\operatorname{Tr}(T^a\{T^b,T^c\})-\sum_{R}\operatorname{Tr}(\cdots)=0"},
+    {"id": "nd-ckm", "act": 7, "lane": 4, "stop": "stop-24", "short": "CKM, GIM & Seesaw", "title": "3-Generation CKM CP Phase, GIM & d=5 Neutrino Seesaw", "rests_on": ["nd-eft", "nd-gws", "nd-anom"], "plain": "Yukawa misalignment generates 3-family CP violation, GIM suppresses FCNCs, and (LH)²/Λ gives Majorana m_ν.", "eq": r"V_{\text{CKM}}=U_L^{u\dagger}U_L^d,\;\;m_\nu\sim\frac{v^2}{\Lambda}"},
+]
+
+MYTHS_AND_TRAPS = [
+    {
+        "num": 1,
+        "cat": "Conceptual Ontology",
+        "myth": "“Virtual particles temporarily violate energy conservation ΔE·Δt ~ ħ during scattering.”",
+        "truth": "4-momentum p^μ = (E, p⃗) is STRICTLY conserved at every Feynman vertex via (2π)⁴δ⁽⁴⁾(∑p)!",
+        "detail": "What differs from a free particle is the invariant mass-shell relation: an internal propagator carries off-shell 4-momentum p² = E² − |p⃗|² ≠ m² (e.g. t-channel photon exchange has q² < 0 spacelike!). ΔE·Δt comes from old non-covariant time-ordered perturbation theory, which covariant Feynman diagrams replaced in 1949.",
+        "stop": "stop-05",
+    },
+    {
+        "num": 2,
+        "cat": "Sign & Convention Trap",
+        "myth": "“Mixing formulas from Peskin/Schwartz and Srednicki works without checking the metric signature.”",
+        "truth": "West Coast (+−−−) gives p² = +m² and +½(∂φ)²; East Coast (−+++) gives p² = −m² and −½(∂φ)²!",
+        "detail": "Every single Lorentz contraction k·p, propagator i/(p²−m²) vs −i/(p²+m²), Clifford {γ^μ,γ^ν} = ±2η^{μν}, and spin sum ∑uū = ±p̸ + m flips! Use the Metric Switch at the top of this site whenever cross-reading Srednicki/Weinberg alongside Tong/Schwartz/Peskin.",
+        "stop": "stop-04",
+    },
+    {
+        "num": 3,
+        "cat": "Fermion Sign Trap",
+        "myth": "“Two Feynman diagrams for the same process always add with a + sign: M = M_1 + M_2.”",
+        "truth": "Swapping two identical external fermion lines OR adding a closed fermion/ghost loop introduces a mandatory (−1)!",
+        "detail": "In Bhabha (e⁺e⁻→e⁺e⁻) or Møller (e⁻e⁻→e⁻e⁻) scattering, the s/t or t/u diagrams differ by exchanging two anticommuting fermion operators, forcing M = M_1 − M_2! Getting this sign wrong destroys destructive Pauli interference at θ = 90°.",
+        "stop": "stop-11",
+    },
+    {
+        "num": 4,
+        "cat": "Spinor Chirality Trap",
+        "myth": "“Chirality (left/right-handedness) and helicity (spin along momentum) are the same thing.”",
+        "truth": "Chirality (γ⁵ = ±1) is Lorentz-invariant; helicity (S⃗·p̂) flips if you boost faster than a massive particle!",
+        "detail": "Only for strictly m = 0 particles traveling at c do chirality and helicity coincide. That is why charged pion decay π⁻ → e⁻ ν̄_e is helicity-suppressed by (m_e/m_μ)² ≈ 2.3 × 10⁻⁵ compared to π⁻ → μ⁻ ν̄_μ: the spin-0 pion forces the left-chiral electron into the ‘wrong’ positive-helicity state, which is only possible via its tiny mass m_e!",
+        "stop": "stop-10",
+    },
+    {
+        "num": 5,
+        "cat": "Gauge Calculation Trap",
+        "myth": "“You can always replace external spin-1 polarization sums ∑_λ ε_μ ε_ν* by −η_{μν} in QCD just like QED.”",
+        "truth": "TRUE for 1 external gluon or Abelian QED—FALSE for ≥ 2 external gluons in non-Abelian QCD!",
+        "detail": "In QED, Ward’s identity k^μ M_μ = 0 holds even when other photons are off-shell. In Yang–Mills QCD, k_1^μ M_{μν} vanishes ONLY when the second gluon is contracted with a physical transverse polarization ε_2^ν! Using −η_{μν} on both external gluons produces fake unphysical polarizations unless you subtract external Faddeev–Popov ghost pair production!",
+        "stop": "stop-19",
+    },
+    {
+        "num": 6,
+        "cat": "Renormalization Myth",
+        "myth": "“Non-renormalizable theories (with d > 4 operators like gravity G_N or Fermi G_F) have zero predictive power.”",
+        "truth": "Non-renormalizable Effective Field Theories are 100% predictive at energies E ≪ Λ to any desired accuracy (E/Λ)^N!",
+        "detail": "To compute scattering at precision (E/Λ)², you only need FINITELY many Wilson coefficients up to dimension d = 6! General Relativity quantized as an EFT predicts unambiguous quantum gravitational loop corrections to Newton’s potential V(r) = −(Gm_1m_2/r)[1 + 41 Għ/(10π r²c³)]!",
+        "stop": "stop-17",
+    },
+    {
+        "num": 7,
+        "cat": "DimReg Algebra Trap",
+        "myth": "“In Dimensional Regularization d = 4 − ε, γ_μ γ^ν γ^μ still equals −2γ^ν.”",
+        "truth": "η_μ^μ = d = 4 − ε in DimReg, so γ_μ γ^ν γ^μ = (2 − d)γ^ν = −(2 − ε)γ^ν!",
+        "detail": "Dropping that tiny +εγ^ν when multiplying a 2/ε UV pole misses a finite +2 constant (ε × 2/ε = 2), ruining Ward identities Z_1 = Z_2 and giving the wrong MS-bar finite part!",
+        "stop": "stop-14",
+    },
+    {
+        "num": 8,
+        "cat": "Mass Generation Myth",
+        "myth": "“The Higgs mechanism gives mass to 99% of everyday atomic matter.”",
+        "truth": "~99% of proton and neutron mass (≈ 929 of 938 MeV) comes from massless QCD gluon & quark confinement energy!",
+        "detail": "Higgs Yukawa couplings give 100% of the electron’s 0.511 MeV mass (setting Bohr atomic radii!) and ~9 MeV to valence u,d quarks. Even in the chiral limit m_u = m_d = 0, QCD dimensional transmutation Λ_QCD generates ~880 MeV nucleon mass!",
+        "stop": "stop-20",
+    },
+    {
+        "num": 9,
+        "cat": "Symmetry Breaking Myth",
+        "myth": "“In the Higgs mechanism, gauge symmetry is broken, so gauge transformations are no longer valid.”",
+        "truth": "A local gauge symmetry is a redundancy of description—it can NEVER truly be broken (Elitzur’s Theorem)!",
+        "detail": "‘Spontaneous gauge symmetry breaking’ is convenient shorthand for the Higgs/Anderson phase where a gauge-invariant composite operator carries non-vanishing stiffness, allowing Goldstone fields to be absorbed by a gauge choice (unitary gauge) into massive spin-1 propagators.",
+        "stop": "stop-21",
+    },
+    {
+        "num": 10,
+        "cat": "Anomaly Crisis Trap",
+        "myth": "“Since DimReg preserves gauge invariance, γ⁵ obeys {γ⁵, γ^μ} = 0 naively in d = 4 − ε dimensions.”",
+        "truth": "ε^{μνρσ} and γ⁵ are intrinsically 4-dimensional—naive {γ⁵, γ^μ} = 0 in d ≠ 4 sets the ABJ chiral anomaly to zero by mistake!",
+        "detail": "In chiral theories you MUST use ’t Hooft–Veltman’s split (γ⁵ anticommutes in 4D subspace, commutes in −ε subspace) or Fujikawa’s path-integral measure regularization to capture triangle anomalies accurately.",
+        "stop": "stop-23",
+    },
+]
+
+EMPIRICAL_LEDGER = [
+    {
+        "observable": "Electron Anomalous Moment a_e = (g−2)/2",
+        "sector": "5-Loop QED + EW + Hadronic",
+        "theory": "0.001 159 652 181 61(23)",
+        "exp": "0.001 159 652 180 59(13)",
+        "precision": "0.11 ppb (12 digits!)",
+        "ref_label": "Fan et al. 2023 (PRL 130, 071801)",
+        "url": "https://doi.org/10.1103/PhysRevLett.130.071801",
+    },
+    {
+        "observable": "Running Fine-Structure α⁻¹(M_Z)",
+        "sector": "QED Vacuum Polarization Screening",
+        "theory": "127.951 ± 0.009",
+        "exp": "127.955 ± 0.010 (from 137.036 at Q=0)",
+        "precision": "0.008% (7% shift verified!)",
+        "ref_label": "PDG Electroweak Review",
+        "url": "https://pdg.lbl.gov/",
+    },
+    {
+        "observable": "Hadronic Cross-Section Ratio R(√s = 10–34 GeV)",
+        "sector": "QCD N_c = 3 Color Counting",
+        "theory": "11/3 · (1 + α_s/π) ≈ 3.81 (vs 1.27 if N_c=1)",
+        "exp": "3.84 ± 0.05",
+        "precision": "Unambiguous N_c = 3 proof",
+        "ref_label": "DESY PETRA / SLAC PEP",
+        "url": "https://pdg.lbl.gov/",
+    },
+    {
+        "observable": "Neutral Pion Decay Width Γ(π⁰ → γγ)",
+        "sector": "ABJ Chiral Triangle Anomaly",
+        "theory": "7.75 ± 0.11 eV (∝ N_c² = 9!)",
+        "exp": "7.80 ± 0.12 eV (PrimEx-II)",
+        "precision": "1.5% (if N_c=1, 0.86 eV—ruled out!)",
+        "ref_label": "Larin et al. 2020 (Science 368)",
+        "url": "https://doi.org/10.1126/science.aay6641",
+    },
+    {
+        "observable": "Running Strong Coupling α_s(Q)",
+        "sector": "QCD Asymptotic Freedom (β_0 > 0)",
+        "theory": "0.312 (m_τ) → 0.1180 (M_Z) → 0.085 (1.5 TeV)",
+        "exp": "α_s(M_Z) = 0.1180 ± 0.0009",
+        "precision": "0.76% across 1–2000 GeV",
+        "ref_label": "Gross, Wilczek & Politzer (Nobel 2004)",
+        "url": "https://www.nobelprize.org/prizes/physics/2004/summary/",
+    },
+    {
+        "observable": "W Boson Mass & Custodial ρ-Parameter",
+        "sector": "Electroweak SU(2)_L × U(1)_Y + Top/Higgs Loops",
+        "theory": "M_W^SM = 80.355 ± 0.006 GeV (tree: 79.95)",
+        "exp": "80.360 ± 0.010 GeV (CMS 2024 + World Avg)",
+        "precision": "0.012% (1-loop Δr confirmed!)",
+        "ref_label": "CMS Collaboration 2024",
+        "url": "https://cds.cern.ch/record/2909632",
+    },
+    {
+        "observable": "Number of Light Active Neutrinos N_ν",
+        "sector": "Invisible Z⁰ Decay Width at LEP",
+        "theory": "N_ν = 3 (anomaly-free generations)",
+        "exp": "2.9840 ± 0.0082",
+        "precision": "0.27% (excludes 4th light ν!)",
+        "ref_label": "ALEPH/DELPHI/L3/OPAL 2006",
+        "url": "https://arxiv.org/abs/hep-ex/0509008",
+    },
+    {
+        "observable": "Higgs Boson Mass & Yukawa Proportionality",
+        "sector": "Spontaneous EW Symmetry Breaking",
+        "theory": "g_{hff} = m_f / v (linear across t, b, τ, μ!)",
+        "exp": "m_h = 125.11 ± 0.11 GeV; κ_f = 1.00 ± 0.06",
+        "precision": "0.09% mass; 5–8% Yukawa",
+        "ref_label": "ATLAS & CMS Nature 607 (2022)",
+        "url": "https://doi.org/10.1038/s41586-022-04893-w",
+    },
+]
+
+BOOKS_COMPENDIUM = [
+    {
+        "title": "Quantum Field Theory and the Standard Model",
+        "author": "Matthew D. Schwartz (2014)",
+        "metric": "West Coast (+ − − −)",
+        "access": "Cambridge Core (Institutional / Print)",
+        "url": "https://www.cambridge.org/core/books/quantum-field-theory-and-the-standard-model/A4786529421822C9925937F22B2E4F1B",
+        "color": "var(--c-act6)",
+        "best_for": "Modern Effective Field Theory, why massless spin-1 forces gauge invariance (Ch. 8), IR/UV disentangling (Ch. 15–20), RG & QCD β-function (Ch. 23, 26), and Electroweak precision (Ch. 29).",
+    },
+    {
+        "title": "Quantum Field Theory (Official Prepublication Draft PDF)",
+        "author": "Mark Srednicki (UCSB, 2007)",
+        "metric": "East Coast (− + + +)",
+        "access": "100% Free Official Draft PDF",
+        "url": "https://web.physics.ucsb.edu/~mark/qft.html",
+        "color": "var(--c-act2)",
+        "best_for": "Clean ~100-chapter modular ladder: Spin-0 path integrals Z[J], LSZ & MS-bar loops FIRST (Ch. 1–32), then 2-component Weyl spinors (Ch. 33–53), then Yang–Mills, BRST & SM (Ch. 69–90).",
+    },
+    {
+        "title": "Lectures on QFT, Gauge Theory & The Standard Model",
+        "author": "David Tong (Cambridge Part III)",
+        "metric": "West Coast (+ − − −)",
+        "access": "3 Free Official PDF Volumes",
+        "url": "https://www.damtp.cam.ac.uk/user/tong/qft.html",
+        "url2": "https://www.damtp.cam.ac.uk/user/tong/standardmodel.html",
+        "color": "var(--c-act1)",
+        "best_for": "Unmatched physical storytelling and intuition before heavy algebra: lightcone causality, Casimir energy, superconductor Higgs analogy, Yang–Mills topology, and chiral anomaly cancellation.",
+    },
+    {
+        "title": "An Introduction to Quantum Field Theory",
+        "author": "Michael E. Peskin & Daniel V. Schroeder (1995)",
+        "metric": "West Coast (+ − − −)",
+        "access": "Print / University Library",
+        "url": "https://openlibrary.org/works/OL1961233W",
+        "color": "var(--c-act5)",
+        "best_for": "Black-belt calculation stamina: Casimir trace technology & QED cross sections (Ch. 5), Schwinger’s α/2π vertex (Ch. 6), Wilsonian shell integration (Ch. 12), and Faddeev–Popov QCD (Ch. 16).",
+    },
+    {
+        "title": "The Quantum Theory of Fields (Vols. I & II)",
+        "author": "Steven Weinberg (1995–1996)",
+        "metric": "East Coast (− + + +)",
+        "access": "Cambridge Core / Print",
+        "url": "https://www.cambridge.org/core/books/quantum-theory-of-fields/22986119910BF6A2EFE42684801A3BDF",
+        "color": "var(--c-act4)",
+        "best_for": "Foundational inevitability: deriving QFT from Poincaré representations ISO(1,3), Wigner little groups, cluster decomposition, general non-perturbative renormalization, and anomalies.",
+    },
+    {
+        "title": "Quantum Field Theory I + II & Fields (arXiv)",
+        "author": "Timo Weigand (Heidelberg) & Warren Siegel (arXiv)",
+        "metric": "West (+−−−) / East (−+++)",
+        "access": "Free Academic & arXiv PDFs",
+        "url": "https://arxiv.org/abs/hep-th/9912205",
+        "color": "var(--c-act7)",
+        "best_for": "Weigand bridges canonical quantization, spectral Källén–Lehmann, and GWS electroweak algebra in 270 crisp pages; Siegel (arXiv:hep-th/9912205) provides an 885-page modern advanced reference.",
+    },
+]

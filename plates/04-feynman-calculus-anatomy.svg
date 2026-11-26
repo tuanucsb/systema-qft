@@ -1,0 +1,68 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" role="img" aria-label="Feynman diagram algebraic anatomy for e+e- to mu+mu-"><style>
+  :root {
+    --bg: #f6f4ee; --surface: #ffffff; --surface-2: #eeeae0;
+    --ink: #11141c; --ink-2: #3b4352; --ink-3: #596273;
+    --line: #d4cec0; --line-2: #aca493; --accent: #0b7a72;
+    --c-crisis: #c81e3a; --c-act1: #155e75; --c-act2: #0f766e;
+    --c-act3: #b45309; --c-act4: #4338ca; --c-act5: #1d4ed8;
+    --c-act6: #7e22ce; --c-act7: #be185d;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #090c15; --surface: #121726; --surface-2: #192036;
+      --ink: #eff3fc; --ink-2: #c2cbe6; --ink-3: #94a0c4;
+      --line: #283152; --line-2: #3d4978; --accent: #2ee6c5;
+      --c-crisis: #ff6b84; --c-act1: #38bdf8; --c-act2: #2dd4bf;
+      --c-act3: #fbbf24; --c-act4: #818cf8; --c-act5: #60a5fa;
+      --c-act6: #c084fc; --c-act7: #f472b6;
+    }
+  }
+  text { font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif; fill: var(--ink); }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .serif { font-family: 'Fraunces', Georgia, serif; }
+</style><rect width="760" height="400" rx="14" fill="var(--surface)"/>
+    <text x="32" y="38" class="mono" font-size="11.5" font-weight="700" fill="var(--c-act3)">PLATE 04 · STOPS 07–09, 13 · THE FEYNMAN ROSETTA STONE</text>
+    <text x="32" y="64" class="serif" font-size="20" font-weight="800">Every Graphical Piece of a Scattering Diagram Maps 1-to-1 onto Algebra</text>
+
+    <!-- Incoming fermions -->
+    <line x1="95" y1="135" x2="255" y2="225" stroke="var(--c-act4)" stroke-width="3"/>
+    <polygon points="182,184 166,182 173,170" fill="var(--c-act4)"/>
+    <line x1="95" y1="315" x2="255" y2="225" stroke="var(--c-act4)" stroke-width="3"/>
+    <polygon points="168,274 184,272 177,260" fill="var(--c-act4)"/>
+
+    <!-- Virtual wavy photon -->
+    <path d="M 255 225 Q 275 205 295 225 T 335 225 T 375 225 T 415 225 T 455 225 T 495 225" fill="none" stroke="var(--c-act5)" stroke-width="3.2"/>
+
+    <!-- Outgoing muons -->
+    <line x1="495" y1="225" x2="655" y2="135" stroke="var(--c-act2)" stroke-width="3"/>
+    <polygon points="582,176 566,178 573,190" fill="var(--c-act2)"/>
+    <line x1="495" y1="225" x2="655" y2="315" stroke="var(--c-act2)" stroke-width="3"/>
+    <polygon points="568,266 584,268 577,280" fill="var(--c-act2)"/>
+
+    <!-- Vertices -->
+    <circle cx="255" cy="225" r="7.5" fill="var(--c-crisis)"/>
+    <circle cx="495" cy="225" r="7.5" fill="var(--c-crisis)"/>
+
+    <!-- Callout boxes -->
+    <rect x="40" y="92" width="165" height="36" rx="6" fill="var(--surface-2)" stroke="var(--c-act4)"/>
+    <text x="50" y="114" class="mono" font-size="12" font-weight="700" fill="var(--c-act4)">e⁻(p₁): u^s(p₁)</text>
+
+    <rect x="40" y="324" width="165" height="36" rx="6" fill="var(--surface-2)" stroke="var(--c-act4)"/>
+    <text x="50" y="346" class="mono" font-size="12" font-weight="700" fill="var(--c-act4)">e⁺(p₂): v̄^{s'}(p₂)</text>
+
+    <rect x="195" y="256" width="132" height="44" rx="6" fill="var(--surface-2)" stroke="var(--c-crisis)"/>
+    <text x="206" y="275" class="mono" font-size="12" font-weight="700" fill="var(--c-crisis)">Vertex: −ieγ^μ</text>
+    <text x="206" y="292" font-size="11" fill="var(--ink-2)">δ⁴(p₁+p₂−q)</text>
+
+    <rect x="304" y="132" width="152" height="50" rx="6" fill="var(--surface-2)" stroke="var(--c-act5)"/>
+    <text x="315" y="153" class="mono" font-size="12" font-weight="700" fill="var(--c-act5)">−iη_{μν} / (q² + iε)</text>
+    <text x="315" y="171" font-size="11" fill="var(--ink-2)">Off-shell q² = s &gt; 0</text>
+
+    <rect x="548" y="92" width="172" height="36" rx="6" fill="var(--surface-2)" stroke="var(--c-act2)"/>
+    <text x="558" y="114" class="mono" font-size="12" font-weight="700" fill="var(--c-act2)">μ⁻(k₁): ū^r(k₁)</text>
+
+    <rect x="548" y="324" width="172" height="36" rx="6" fill="var(--surface-2)" stroke="var(--c-act2)"/>
+    <text x="558" y="346" class="mono" font-size="12" font-weight="700" fill="var(--c-act2)">μ⁺(k₂): v^{r'}(k₂)</text>
+
+    <text x="380" y="382" text-anchor="middle" class="mono" font-size="12" font-weight="700" fill="var(--ink-2)">Read spinor lines BACKWARD against arrow: [v̄(p₂)(−ieγ^μ)u(p₁)] · [−iη_{μν}/s] · [ū(k₁)(−ieγ^ν)v(k₂)]</text>
+    </svg>

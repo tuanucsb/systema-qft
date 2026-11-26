@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 400" role="img" aria-label="Complex p0 plane Feynman poles and Wick rotation"><style>
+  :root {
+    --bg: #f6f4ee; --surface: #ffffff; --surface-2: #eeeae0;
+    --ink: #11141c; --ink-2: #3b4352; --ink-3: #596273;
+    --line: #d4cec0; --line-2: #aca493; --accent: #0b7a72;
+    --c-crisis: #c81e3a; --c-act1: #155e75; --c-act2: #0f766e;
+    --c-act3: #b45309; --c-act4: #4338ca; --c-act5: #1d4ed8;
+    --c-act6: #7e22ce; --c-act7: #be185d;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #090c15; --surface: #121726; --surface-2: #192036;
+      --ink: #eff3fc; --ink-2: #c2cbe6; --ink-3: #94a0c4;
+      --line: #283152; --line-2: #3d4978; --accent: #2ee6c5;
+      --c-crisis: #ff6b84; --c-act1: #38bdf8; --c-act2: #2dd4bf;
+      --c-act3: #fbbf24; --c-act4: #818cf8; --c-act5: #60a5fa;
+      --c-act6: #c084fc; --c-act7: #f472b6;
+    }
+  }
+  text { font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif; fill: var(--ink); }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .serif { font-family: 'Fraunces', Georgia, serif; }
+</style><rect width="760" height="400" rx="14" fill="var(--surface)"/>
+    <text x="32" y="38" class="mono" font-size="11.5" font-weight="700" fill="var(--c-act2)">PLATE 03 · STOPS 05 &amp; 14 · COMPLEX p⁰ PLANE &amp; WICK ROTATION</text>
+    <text x="32" y="64" class="serif" font-size="20" font-weight="800">How +iε Routes Forward/Backward Time—and Unlocks 90° Euclidean Wick Rotation</text>
+
+    <!-- Axes -->
+    <line x1="90" y1="230" x2="670" y2="230" stroke="var(--ink-2)" stroke-width="2"/>
+    <line x1="380" y1="92" x2="380" y2="372" stroke="var(--ink-2)" stroke-width="2"/>
+    <text x="646" y="218" class="mono" font-size="12.5" font-weight="700">Re(p⁰)</text>
+    <text x="392" y="106" class="mono" font-size="12.5" font-weight="700">Im(p⁰) = p_E⁰</text>
+
+    <!-- Lower half-plane arc (t > 0) -->
+    <path d="M 140 230 A 240 132 0 0 0 620 230" fill="none" stroke="var(--c-act2)" stroke-width="2.6" stroke-dasharray="6 4"/>
+    <text x="380" y="352" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--c-act2)">Close LOWER for x⁰ &gt; y⁰ → encircles +ω_p − iε (Particle forward in t)</text>
+
+    <!-- Upper half-plane arc (t < 0) -->
+    <path d="M 140 230 A 240 124 0 0 1 620 230" fill="none" stroke="var(--c-act4)" stroke-width="2.4" stroke-dasharray="4 4"/>
+    <text x="380" y="128" text-anchor="middle" font-size="12.5" font-weight="700" fill="var(--c-act4)">Close UPPER for x⁰ &lt; y⁰ → encircles −ω_p + iε (Antiparticle backward in t)</text>
+
+    <!-- Two shifted poles -->
+    <circle cx="235" cy="196" r="7" fill="var(--c-crisis)"/>
+    <text x="150" y="182" class="mono" font-size="12" font-weight="700" fill="var(--c-crisis)">×  −ω_p + iε (Q II)</text>
+
+    <circle cx="525" cy="264" r="7" fill="var(--c-crisis)"/>
+    <text x="478" y="290" class="mono" font-size="12" font-weight="700" fill="var(--c-crisis)">×  +ω_p − iε (Q IV)</text>
+
+    <!-- Wick rotation 90 deg arrow in Q1 & Q3 (pole-free!) -->
+    <path d="M 455 224 A 75 75 0 0 0 386 155" fill="none" stroke="var(--c-act6)" stroke-width="3"/>
+    <polygon points="386,155 397,160 392,169" fill="var(--c-act6)"/>
+    <text x="458" y="176" font-size="12" font-weight="700" fill="var(--c-act6)">Wick Rotation (+90°)</text>
+    <text x="458" y="193" font-size="11.5" fill="var(--ink-2)">Zero poles in Q I &amp; Q III!</text>
+    </svg>

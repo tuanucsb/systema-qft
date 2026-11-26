@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 390" role="img" aria-label="Chiral triangle gauge anomaly cancellation across quarks and leptons"><style>
+  :root {
+    --bg: #f6f4ee; --surface: #ffffff; --surface-2: #eeeae0;
+    --ink: #11141c; --ink-2: #3b4352; --ink-3: #596273;
+    --line: #d4cec0; --line-2: #aca493; --accent: #0b7a72;
+    --c-crisis: #c81e3a; --c-act1: #155e75; --c-act2: #0f766e;
+    --c-act3: #b45309; --c-act4: #4338ca; --c-act5: #1d4ed8;
+    --c-act6: #7e22ce; --c-act7: #be185d;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #090c15; --surface: #121726; --surface-2: #192036;
+      --ink: #eff3fc; --ink-2: #c2cbe6; --ink-3: #94a0c4;
+      --line: #283152; --line-2: #3d4978; --accent: #2ee6c5;
+      --c-crisis: #ff6b84; --c-act1: #38bdf8; --c-act2: #2dd4bf;
+      --c-act3: #fbbf24; --c-act4: #818cf8; --c-act5: #60a5fa;
+      --c-act6: #c084fc; --c-act7: #f472b6;
+    }
+  }
+  text { font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif; fill: var(--ink); }
+  .mono { font-family: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, monospace; }
+  .serif { font-family: 'Fraunces', Georgia, serif; }
+</style><rect width="760" height="390" rx="14" fill="var(--surface)"/>
+    <text x="32" y="38" class="mono" font-size="11.5" font-weight="700" fill="var(--c-crisis)">PLATE 11 · STOP 23 · CHIRAL TRIANGLE ANOMALIES &amp; QUARK–LEPTON MIRACLE</text>
+    <text x="32" y="64" class="serif" font-size="20" font-weight="800">Quarks Alone Fail. Leptons Alone Fail. Together (with N_c = 3) Every Anomaly Vanishes!</text>
+
+    <!-- Left: Triangle Diagram -->
+    <path d="M 52 215 Q 68 202 84 215 T 116 215" fill="none" stroke="var(--c-act5)" stroke-width="3"/>
+    <polygon points="116,215 236,132 236,298" fill="var(--surface-2)" stroke="var(--c-act4)" stroke-width="3"/>
+    <path d="M 236 132 Q 256 122 272 136 T 308 136" fill="none" stroke="var(--c-act7)" stroke-width="3"/>
+    <path d="M 236 298 Q 256 288 272 302 T 308 302" fill="none" stroke="var(--c-act7)" stroke-width="3"/>
+    <circle cx="116" cy="215" r="6" fill="var(--c-crisis)"/>
+    <circle cx="236" cy="132" r="6" fill="var(--c-crisis)"/>
+    <circle cx="236" cy="298" r="6" fill="var(--c-crisis)"/>
+    <text x="195" y="218" text-anchor="middle" class="mono" font-size="12" font-weight="700" fill="var(--c-act4)">ψ_L, ψ_R</text>
+    <text x="72" y="192" class="mono" font-size="12" font-weight="700">T^a γ^μ P_L</text>
+    <text x="275" y="118" class="mono" font-size="12" font-weight="700">T^b γ^ν</text>
+    <text x="275" y="330" class="mono" font-size="12" font-weight="700">T^c γ^ρ</text>
+
+    <!-- Right: Cancellation Balance Ledger -->
+    <rect x="356" y="96" width="372" height="264" rx="10" fill="var(--surface-2)" stroke="var(--line)"/>
+    <text x="542" y="124" text-anchor="middle" font-size="13.5" font-weight="800">1-Generation Anomaly Audit (N_c = 3)</text>
+    <g class="mono" font-size="12">
+      <text x="376" y="158" font-weight="700" fill="var(--c-act7)">1. [SU(3)_c]² U(1)_Y:</text>
+      <text x="376" y="178" fill="var(--ink-2)">   2(1/6) − (2/3) − (−1/3) = 0  ✓</text>
+
+      <text x="376" y="210" font-weight="700" fill="var(--c-act5)">2. [SU(2)_L]² U(1)_Y (Locks N_c = 3!):</text>
+      <text x="376" y="230" fill="var(--ink-2)">   Quarks +3(1/6) + Leptons (−1/2) = 0  ✓</text>
+
+      <text x="376" y="262" font-weight="700" fill="var(--c-act6)">3. [U(1)_Y]³ Cubic Trace:</text>
+      <text x="376" y="282" fill="var(--ink-2)">   Quarks (−3/4) + Leptons (+3/4) = 0  ✓</text>
+
+      <text x="376" y="314" font-weight="700" fill="var(--c-act2)">4. [Gravity]² U(1)_Y:</text>
+      <text x="376" y="334" fill="var(--ink-2)">   6(1/6)−3(2/3)−3(−1/3)+2(−1/2)−(−1) = 0 ✓</text>
+    </g>
+    </svg>
